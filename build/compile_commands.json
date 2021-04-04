@@ -1,0 +1,122 @@
+[
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/AmbientLightSource.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/AmbientLightSource.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/AmbientLightSource.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/Camera.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Camera.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Camera.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/Colour.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Colour.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Colour.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/Cube.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Cube.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Cube.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/Cylinder.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Cylinder.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Cylinder.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/Direction.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Direction.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Direction.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/DirectionalLightSource.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/DirectionalLightSource.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/DirectionalLightSource.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/ImageDisplay.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/ImageDisplay.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/ImageDisplay.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/LightSource.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/LightSource.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/LightSource.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/Material.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Material.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Material.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/Matrix.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Matrix.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Matrix.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/Normal.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Normal.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Normal.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/Object.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Object.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Object.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/PinholeCamera.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/PinholeCamera.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/PinholeCamera.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/Plane.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Plane.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Plane.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/Point.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Point.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Point.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/PointLightSource.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/PointLightSource.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/PointLightSource.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/Scene.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Scene.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Scene.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/SceneReader.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/SceneReader.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/SceneReader.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/Sphere.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Sphere.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Sphere.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/Transform.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Transform.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Transform.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/Tube.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Tube.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Tube.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/Vector.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Vector.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Vector.cpp"
+},
+{
+  "directory": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/build",
+  "command": "/usr/bin/clang++    -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14   -std=c++1z -o CMakeFiles/rayTracer.dir/rayTracerMain.cpp.o -c /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/rayTracerMain.cpp",
+  "file": "/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/rayTracerMain.cpp"
+}
+]

@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['camera_12',['Camera',['../class_camera.html',1,'Camera'],['../class_camera.html#a01f94c3543f56ede7af49dc778f19331',1,'Camera::Camera()'],['../class_camera.html#a4391264461cbef17b3b0895ad460ace0',1,'Camera::Camera(const Camera &amp;camera)']]],
+  ['camera_2ecpp_13',['Camera.cpp',['../_camera_8cpp.html',1,'']]],
+  ['camera_2eh_14',['Camera.h',['../_camera_8h.html',1,'']]],
+  ['camera_5f_15',['camera_',['../class_scene.html#aaf7e33b58d45af75c40f0673197e2d01',1,'Scene']]],
+  ['camera_5fh_5fincluded_16',['CAMERA_H_INCLUDED',['../_camera_8h.html#a4ddd4d24300c8413f1d427f1f17a31d4',1,'Camera.h']]],
+  ['castray_17',['castRay',['../class_camera.html#a206161d2c114c842b45055093309968b',1,'Camera::castRay()'],['../class_pinhole_camera.html#ab5172003b60e67de97f612d389cd8e0b',1,'PinholeCamera::castRay()']]],
+  ['clip_18',['clip',['../class_colour.html#ac27be188cea3b5936fe7194c6373847a',1,'Colour']]],
+  ['colour_19',['Colour',['../class_colour.html',1,'Colour'],['../class_colour.html#a46612b9524fcd4cee818af6a86b7a4d2',1,'Colour::Colour()'],['../class_colour.html#a5b6b11039c76f0656318fd8dbef7ab95',1,'Colour::Colour(double r, double g, double b)'],['../class_colour.html#acb3c79677c7607c8c0afd1654b75161b',1,'Colour::Colour(const Colour &amp;colour)']]],
+  ['colour_2ecpp_20',['Colour.cpp',['../_colour_8cpp.html',1,'']]],
+  ['colour_2eh_21',['Colour.h',['../_colour_8h.html',1,'']]],
+  ['colour_5f_22',['colour_',['../class_light_source.html#ad0a835b8c49bc3ab2c9db721da6f9f53',1,'LightSource']]],
+  ['colour_5fh_5fincluded_23',['COLOUR_H_INCLUDED',['../_colour_8h.html#a6ba45b9715b560989c4bec149f3ebf0c',1,'Colour.h']]],
+  ['cols_5f_24',['cols_',['../class_matrix.html#a8e3c608caa9b0dc9d140f7d4b75208cb',1,'Matrix']]],
+  ['computecolour_25',['computeColour',['../class_scene.html#a73372ce8f55a7377daceb0f4691df3b0',1,'Scene']]],
+  ['cosc_20342_20ray_20tracer_202021_2e_26',['COSC 342 Ray Tracer 2021.',['../index.html',1,'']]],
+  ['cross_27',['cross',['../class_vector.html#a7283e2cdf9397e7f9f7de763404920a6',1,'Vector']]],
+  ['cube_28',['Cube',['../class_cube.html',1,'Cube'],['../class_cube.html#a06f3d86fb63e3aad08623610aa3c17b4',1,'Cube::Cube()'],['../class_cube.html#ad882c25fa0ac3f89fe1e549a774ec965',1,'Cube::Cube(const Cube &amp;cube)']]],
+  ['cube_2ecpp_29',['Cube.cpp',['../_cube_8cpp.html',1,'']]],
+  ['cube_2eh_30',['Cube.h',['../_cube_8h.html',1,'']]],
+  ['cube_5fh_5fincluded_31',['CUBE_H_INCLUDED',['../_cube_8h.html#a18fcfc8dad0fdbd933e921724751eb3e',1,'Cube.h']]],
+  ['cylinder_32',['Cylinder',['../class_cylinder.html',1,'Cylinder'],['../class_cylinder.html#a01dc978cb576f834b9545e43d4dad2a2',1,'Cylinder::Cylinder()'],['../class_cylinder.html#a126bad6f35a1ec52559d998e6b7766d1',1,'Cylinder::Cylinder(const Cylinder &amp;cylinder)']]],
+  ['cylinder_2ecpp_33',['Cylinder.cpp',['../_cylinder_8cpp.html',1,'']]],
+  ['cylinder_2eh_34',['Cylinder.h',['../_cylinder_8h.html',1,'']]],
+  ['cylinder_5fh_5fincluded_35',['CYLINDER_H_INCLUDED',['../_cylinder_8h.html#ab9d96e565dfcc43451589d852116341a',1,'Cylinder.h']]]
+];

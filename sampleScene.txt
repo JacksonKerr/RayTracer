@@ -1,0 +1,29 @@
+# Small image so we don't have to wait too long
+# Background is blue
+Scene
+    backgroundColour 0 0 1
+    renderSize 320 240
+End
+
+# A red sphere, 3 units along the Z axis
+Object Sphere 
+	Colour 1 0 0
+	Translate 0 0 3
+End
+
+# A smaller green sphere, 1 unit along the Z axis
+Object Sphere
+	Colour 0 1 0
+	Scale 0.25
+	Translate 0 0 1
+End
+
+# Plenty of ambient light - since it all we have to start
+Light AmbientLight
+	Colour 1 1 1
+End
+
+# And a camera to render the image
+Camera PinholeCamera 1
+	# Default camera settings, nothing to do here
+End
