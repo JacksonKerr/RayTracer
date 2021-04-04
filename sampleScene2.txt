@@ -7,6 +7,8 @@ End
 
 # A cyan cube, at the origin
 Object Cube
+    Rotate X 45
+    Rotate Y 135
 	Colour 0 1 1
     Translate 0 0 3
 End
@@ -15,7 +17,6 @@ End
 Object Plane
 	Colour 1 0 0
     Translate 0 0 3
-    rotate Z 45
     rotate Y 20
 End
 

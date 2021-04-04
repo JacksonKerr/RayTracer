@@ -59,47 +59,48 @@ std::vector<RayIntersection> Cube::intersect(const Ray& ray) const {
 	axis.push_back(1);
 	axis.push_back(2);
 
-	std::rotate(axis.begin(),
+	for (int i = 0; i < 3; i++) {
+		std::vector<double> collisionDists;
+		collisionDists.push_back((-1-rayStartPoint(axis.at(0))) / rayDirection(axis.at(0)));
+		collisionDists.push_back((1-rayStartPoint(axis.at(0))) / rayDirection(axis.at(0)));
+
+		// Now having some λ values, we can use them to find
+		// to find the other co-ordinates
+		//
+		// x = e + λdˣ
+		// y = f + λdʸ
+		// z = e + λdᶻ
+
+		// Starting with λ for x = 1
+		for (double lambda : collisionDists) {
+			double x = 1;
+			double y = rayStartPoint(axis.at(1)) + lambda * rayDirection(axis.at(1));
+			double z = rayStartPoint(axis.at(2)) + lambda * rayDirection(axis.at(2));
+			
+			// Check that the point hit the plane
+			if ((-1 <= y && y <= 1) && (-1 <= z && z <= 1)) {
+				RayIntersection hit;
+				Point hitPoint = transform.apply(Point(x, y, z));
+
+				// Transform the hit point baack to where it belongs.
+				hit.point = hitPoint;
+				// Get the object's material
+				hit.material = material;
+				
+				// Normal direction is from the intersection point towards z
+				hit.normal = transform.apply(Normal(0, 0, 1)); // (Any z value > 0 would also work here)
+
+				// Distance 
+				hit.distance = lambda;
+
+				// Add the hit to the result vector and return
+				result.push_back(hit);	
+			}
+		}
+		// Rotate axis for next pass
+		std::rotate(axis.begin(),
             axis.end()-1, // this will be the new first element
             axis.end());
-
-
-	std::vector<double> collisionDists;
-	collisionDists.push_back((1-rayStartPoint(0)) / rayDirection(0));
-	collisionDists.push_back((-1-rayStartPoint(0)) / rayDirection(0));
-
-	// Now having some λ values, we can use them to find
-	// to find the other co-ordinates
-	//
-	// x = e + λdˣ
-	// y = f + λdʸ
-	// z = e + λdᶻ
-
-	// Starting with λ for x = 1
-	for (double lambda : collisionDists) {
-		double x = 1;
-		double y = rayStartPoint(1) + lambda * rayDirection(1);
-		double z = rayStartPoint(2) + lambda * rayDirection(2);
-		
-		// Check that the point hit the plane
-		if ((-1 <= y && y <= 1) && (-1 <= z && z <= 1)) {
-			RayIntersection hit;
-			Point hitPoint = transform.apply(Point(x, y, z));
-
-			// Transform the hit point baack to where it belongs.
-			hit.point = hitPoint;
-			// Get the object's material
-			hit.material = material;
-			
-			// Normal direction is from the intersection point towards z
-			hit.normal = transform.apply(Normal(0, 0, 1)); // (Any z value > 0 would also work here)
-
-			// Distance 
-			hit.distance = lambda;
-
-			// Add the hit to the result vector and return
-			result.push_back(hit);	
-		}
 	}
 
 	return result;
