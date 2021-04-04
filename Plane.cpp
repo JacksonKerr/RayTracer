@@ -41,13 +41,6 @@ std::vector<RayIntersection> Plane::intersect(const Ray& ray) const {
 	const Point& rayStartPoint = inverseRay.point;
 	const Direction& rayDirection = inverseRay.direction;
 
-	std::cout << "===================" << std::endl;
-	std::cout << "Casting ray from point: (";
-	std::cout << rayStartPoint(0) << ", \t" << rayStartPoint(1) << ", \t" << rayStartPoint(2) << ")" << std::endl;
-	std::cout << "Towards: \t\t(";
-	std::cout << rayDirection(0) << ", \t" << rayDirection(1) << ", \t" << rayDirection(2) << ")" << std::endl;
-
-
 	// The ray is intersecting the plane when:
 	// 	• -1 <= x <= 1
 	//	• -1 <= y <= 1
@@ -60,25 +53,18 @@ std::vector<RayIntersection> Plane::intersect(const Ray& ray) const {
 
 	const double collisionDist = (-rayStartPoint(2)) / rayDirection(2);
 
-	std::cout << "CollisionDist = \t" << collisionDist << std::endl;	
-
 	// Now knowing λ, we can use the ray equation 
 	// to find x, and y.
 	//
 	// x = e + λdˣ
 	// y = f + λdʸ
+
 	double x = rayStartPoint(0) + collisionDist * rayDirection(0);
-	std::cout << "x = " << rayStartPoint(0) << " + " << collisionDist << " x " << rayDirection(0) << " = " << x << std::endl;
-	
-	
 	double y = rayStartPoint(1) + collisionDist * rayDirection(1);
 	double z = 0;
 	
-
+	// Check that the point hit the plane
 	if ((-1 <= x && x <= 1) && (-1 <= y && y <= 1)) {
-		
-		std::cout << "Hit plane at: \t\t(" << x << ", \t" << y << ", \t" << z << ")" << std::endl;
-
 		RayIntersection hit;
 		Point hitPoint = transform.apply(Point(x, y, z));
 
@@ -88,8 +74,10 @@ std::vector<RayIntersection> Plane::intersect(const Ray& ray) const {
 		hit.material = material;
 		
 		// Normal direction is from the intersection point towards z
-		hit.normal = transform.apply(Normal(x, y, 1)); // (Any z value > 0 would also work here)
+		hit.normal = transform.apply(Normal(0, 0, 1)); // (Any z value > 0 would also work here)
 
+		// Distance 
+		hit.distance = collisionDist;
 
 		// Add the hit to the result vector and return
 		result.push_back(hit);	

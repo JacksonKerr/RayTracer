@@ -8,6 +8,16 @@
 
 /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Colour.h
 
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Cube.cpp
+Cube.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Cube.h
+utility.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/utility.h
+
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Cube.h
+Object.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Object.h
+
 /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Direction.h
 Vector.h
 /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Vector.h
@@ -37,16 +47,6 @@ Transform.h
 /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Transform.h
 vector
 -
-
-/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Plane.cpp
-Plane.h
-/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Plane.h
-utility.h
-/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/utility.h
-
-/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Plane.h
-Object.h
-/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Object.h
 
 /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Point.h
 Vector.h
