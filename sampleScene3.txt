@@ -8,20 +8,7 @@ End
 # A TUBE
 Object Tube 1
 	Colour 1 0 0
-    Translate 0 0 5
-End
-
-# A PLANE
-Object Plane
-Rotate X -45
-	Colour 0 0.7 0
-    Translate 0 0 5
-End
-
-# A PLANE
-Object Plane
-    Rotate X 45
-	Colour 0 0 1
+    Rotate Y 50
     Translate 0 0 5
 End
 
@@ -32,7 +19,5 @@ End
 
 # And a camera to render the image
 Camera PinholeCamera 1
-    Rotate Y 70
-    Translate -4 0 4
 	# Default camera settings, nothing to do here
 End

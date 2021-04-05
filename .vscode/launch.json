@@ -8,13 +8,10 @@
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "enter program name, for example ${workspaceFolder}/build/rayTracer",
-            "args": [],
-            "stopAtEntry": false,
+            "program": "${workspaceFolder}/build/rayTracer",
+            "args": ["sampleScene2.txt"],
             "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb"
+            "console": "integratedTerminal",
         }
     ]
 }

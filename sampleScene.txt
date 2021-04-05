@@ -1,7 +1,7 @@
 # Small image so we don't have to wait too long
 # Background is blue
 Scene
-    backgroundColour 0 0 1
+    backgroundColour 0.3 0.3 0.3
     renderSize 320 240
 End
 
