@@ -56,23 +56,33 @@ std::vector<RayIntersection> Tube::intersect(const Ray& ray) const {
 	//		a = dʸ² + dᶻ²
 	// 		b = 2dʸf + 2dᶻg
 	// 		c = f² + g² + r²
+	//
 
 	double a = (rayDirection(1)*rayDirection(1)) + (rayDirection(2)*rayDirection(2));
 	double b = (2 * rayDirection(1)*rayStartPoint(1)) + (2 * rayDirection(2) * rayStartPoint(2));
 	double c = (rayStartPoint(1)*rayStartPoint(1)) + (rayStartPoint(2)*rayStartPoint(2)) - r;
 
+	// Small number, anything between it and 0 is treated as 0
+	double epsilon = std::numeric_limits<double>::epsilon();
+
+	// > epsilon means 2 solutions
 	double discriminant = b*b - 4*a*c;
 	std::vector<double> lambdas;
-	double epsilon = 0.000001;
-	if (epsilon < discriminant) {
+
+	// Discriminant > epsilon means 2 solutions
+	if (discriminant > epsilon) { // Treat epsilon as 0
 		lambdas.push_back( ( -b +sqrt(discriminant) ) / (2*a) );
 		lambdas.push_back( ( -b -sqrt(discriminant) ) / (2*a) );
 	}
-	if (0 < discriminant && discriminant < epsilon) {
+	// Discriminant = 0 means 1 solution
+	else if (0 < discriminant && discriminant < epsilon) {
 		lambdas.push_back(-b / (2*a));
 	}
-	// Now having some λ values, we can use them to find
-	// to find co-ordinates
+	// Otherwise no solutions (Return early)
+	else return result;
+
+	// Now having a/some λ value, we can use them to find
+	// to find the hit co-ordinates.
 	//
 	// x = e + λdˣ
 	// y = f + λdʸ
@@ -83,6 +93,7 @@ std::vector<RayIntersection> Tube::intersect(const Ray& ray) const {
 		double y = rayStartPoint(1) + lambda * rayDirection(1);
 		double z = rayStartPoint(2) + lambda * rayDirection(2);
 
+		// Checking x is within the length of the tube
 		if (-l <= x && x <= l) {
 			RayIntersection hit;
 			Point hitPoint = transform.apply(Point(x, y, z));
