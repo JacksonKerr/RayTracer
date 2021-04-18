@@ -6,11 +6,35 @@
 
 #IncludeRegexTransform: 
 
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Camera.h
+Ray.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Ray.h
+Transform.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Transform.h
+
 /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Colour.h
 
 /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Direction.h
 Vector.h
 /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Vector.h
+
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/ImageDisplay.h
+Colour.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Colour.h
+NonCopyable.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/NonCopyable.h
+stb_image_write.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/stb_image_write.h
+string
+-
+vector
+-
+
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/LightSource.h
+Colour.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Colour.h
+Ray.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Ray.h
 
 /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Material.h
 Colour.h
@@ -21,6 +45,8 @@ vector
 -
 iostream
 -
+
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/NonCopyable.h
 
 /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Normal.h
 Vector.h
@@ -58,6 +84,42 @@ Normal.h
 memory
 -
 
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Scene.cpp
+Scene.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Scene.h
+Colour.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Colour.h
+ImageDisplay.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/ImageDisplay.h
+utility.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/utility.h
+float.h
+-
+
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Scene.h
+memory
+-
+string
+-
+vector
+-
+Camera.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Camera.h
+Colour.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Colour.h
+LightSource.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/LightSource.h
+Material.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Material.h
+NonCopyable.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/NonCopyable.h
+Object.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Object.h
+Ray.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Ray.h
+RayIntersection.h
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/RayIntersection.h
+
 /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Transform.h
 Direction.h
 /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Direction.h
@@ -70,19 +132,23 @@ Point.h
 Ray.h
 /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Ray.h
 
-/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Tube.cpp
-Tube.h
-/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Tube.h
-utility.h
-/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/utility.h
-
-/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Tube.h
-Object.h
-/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Object.h
-
 /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Vector.h
 Matrix.h
 /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/Matrix.h
+
+/home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/stb_image_write.h
+stdio.h
+-
+stdarg.h
+-
+stdlib.h
+-
+string.h
+-
+math.h
+-
+assert.h
+-
 
 /home/cshome/j/jkerr/Desktop/COSC342-2021/lab05-RayTracer/utility.h
 cmath

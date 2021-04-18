@@ -4,6 +4,8 @@
 #include "ImageDisplay.h"
 #include "utility.h"
 
+#include <float.h>
+
 // For demos
 
 Scene::Scene() : backgroundColour(0,0,0), ambientLight(0,0,0), maxRayDepth(3), renderWidth(800), renderHeight(600), filename("render.png"), camera_(), objects_(), lights_() {
@@ -50,7 +52,7 @@ RayIntersection Scene::intersect(const Ray& ray) const {
 }
 
 Colour Scene::computeColour(const Ray& ray, unsigned int rayDepth) const {
-	RayIntersection hitPoint = intersect(ray);
+	const RayIntersection hitPoint = intersect(ray);
 	if (hitPoint.distance == infinity) {
 		return backgroundColour;
 	}
@@ -63,12 +65,38 @@ Colour Scene::computeColour(const Ray& ray, unsigned int rayDepth) const {
 			// An ambient light, ignore shadows and add appropriate colour
 			hitColour += light->getIlluminationAt(hitPoint.point) * hitPoint.material.ambientColour;
 		} else {
-			// Not an ambient light
-			
-			/**************************************************
-		    * Code for better lighting and shadows goes here. *
-	        **************************************************/
-		}
+			// === If not an ambient light: === 
+
+			// Lambda for converting vectors to unit-vectors
+			auto toUnitVector = [](const Vector vec) {
+				Vector resultVector = Vector(vec);
+				double vecLen = vec.norm();
+				if (vecLen != 1) {
+					resultVector(0) = vec(0)/vecLen;
+					resultVector(1) = vec(1)/vecLen;
+					resultVector(2) = vec(2)/vecLen;
+				}
+				return resultVector;
+			};
+
+			const Vector hitUnitNormal = toUnitVector(hitPoint.normal);
+			const Vector unitLightDir = toUnitVector(light->getLightDirection(hitPoint.point));
+			const Colour luxAtHitPoint = light->getIlluminationAt(hitPoint.point);
+			const Colour objectDiffuse = hitPoint.material.diffuseColour;
+
+			// Check if point is in shadow before computing light:
+			Ray shadowRay;
+			shadowRay.point = hitPoint.point;
+			shadowRay.direction = -light->getLightDirection(shadowRay.point);
+			const double distToLight = light->getDistanceToLight(shadowRay.point);
+			const RayIntersection shadowRayHit = this->intersect(shadowRay);
+			if (shadowRayHit.distance < distToLight) continue;
+
+			double nDOTr = hitUnitNormal.dot(-unitLightDir);
+			if (nDOTr >= 0) {
+				hitColour += luxAtHitPoint * objectDiffuse * nDOTr; 
+			}
+		}		
 	}
 
 	// Compute mirror reflections - only if surface hit is a mirror and we've not reached our rayDepth

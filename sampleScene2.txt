@@ -25,9 +25,13 @@ Object Plane
     Translate 0 0 5
 End
 
-# Plenty of ambient light - since it all we have to start
+Light PointLight
+    Location 3 3 5
+    Colour 50 50 50
+End
+
 Light AmbientLight
-	Colour 1 1 1
+    Colour 0.3 0.3 0.3
 End
 
 # And a camera to render the image

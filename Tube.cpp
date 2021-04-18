@@ -25,8 +25,8 @@ Tube& Tube::operator=(const Tube& tube) {
 std::vector<RayIntersection> Tube::intersect(const Ray& ray) const {
 
 	std::vector<RayIntersection> result;
-	double r = 0.5; // Default tube radius
-	double l = 0.5; // Default tube length
+	double r = 1; // Default tube radius
+	double l = 1; // Default tube length
 
 	// Apply the inverse transform to the ray so we only have to worry 
 	// about a tube centered on the origin with a radius of r and length l
@@ -57,7 +57,6 @@ std::vector<RayIntersection> Tube::intersect(const Ray& ray) const {
 	// 		b = 2dʸf + 2dᶻg
 	// 		c = f² + g² + r²
 	//
-
 	double a = (rayDirection(1)*rayDirection(1)) + (rayDirection(2)*rayDirection(2));
 	double b = (2 * rayDirection(1)*rayStartPoint(1)) + (2 * rayDirection(2) * rayStartPoint(2));
 	double c = (rayStartPoint(1)*rayStartPoint(1)) + (rayStartPoint(2)*rayStartPoint(2)) - r;
