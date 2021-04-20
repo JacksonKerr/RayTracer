@@ -1,24 +1,30 @@
 Scene
-BackgroundColour 0 0 0
-RenderSize 100 100
-Filename noshadows.png
+    BackgroundColour 0 0 0
+    RenderSize 100 100
+    Filename render.png
 End
+
 Object Sphere
-Colour 1 0 0
-Translate 0 0 2
+    Colour 1 0 0
+    Translate 0 0 2
 End
+
 Object Plane
-Scale 10
-Colour 1 1 1
-Rotate X 90
-Translate 0 1 0
+    Scale 10
+    Colour 1 1 1
+    Rotate X 90
+    Rotate Z 180
+    Translate 0 1 0
 End
+
 Camera PinholeCamera 1
 End
+
 Light PointLight
-Location 3 0 0
-Colour 8 8 8
+    Location 3 0 0
+    Colour 8 8 8
 End
+
 Light AmbientLight
-Colour 0.2 0.2 0.2
+    Colour 0.2 0.2 0.2
 End

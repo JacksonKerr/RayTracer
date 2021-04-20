@@ -52,6 +52,7 @@ std::vector<RayIntersection> Plane::intersect(const Ray& ray) const {
 	//                      λ = -g/dᶻ
 
 	const double collisionDist = (-rayStartPoint(2)) / rayDirection(2);
+	if (std::abs(rayDirection(2)) < epsilon || collisionDist < 0) return result;
 
 	// Now knowing λ, we can use the ray equation 
 	// to find x, and y.
@@ -74,10 +75,14 @@ std::vector<RayIntersection> Plane::intersect(const Ray& ray) const {
 		hit.material = material;
 		
 		// Normal direction is from the intersection point towards z
-		hit.normal = transform.apply(Normal(0, 0, 1)); // (Any z value > 0 would also work here)
+		hit.normal = transform.apply(Normal(0, 0, -1)); // (Any z value < 0 would also work here)
+		if (hit.normal.dot(ray.direction) > 0) {
+				hit.normal = -hit.normal;
+		}
 
 		// Distance 
-		hit.distance = collisionDist;
+		hit.distance = (ray.point - hit.point).norm();
+		if (hit.distance < 0) return result;
 
 		// Add the hit to the result vector and return
 		result.push_back(hit);	

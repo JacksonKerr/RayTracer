@@ -88,8 +88,8 @@ std::vector<RayIntersection> Cube::intersect(const Ray& ray) const {
 				hit.material = material;
 				
 				// Normal direction is from the intersection point towards z
-				hit.normal = transform.apply(Normal(0, 0, 1)); // (Any z value > 0 would also work here)
-
+				hit.normal = transform.apply(Normal(0, 0, 1));
+				
 				// Distance 
 				hit.distance = lambda;
 
