@@ -36,12 +36,12 @@ std::vector<RayIntersection> Cube::intersect(const Ray& ray) const {
 	int zAxis = 2;
 
 	if (true) {
-		const double collisionDist = (-rayStartPoint(zAxis)) / rayDirection(zAxis);
-		if (std::abs(rayDirection(zAxis)) < epsilon || collisionDist < 0) return result;
+		const double collisionDist = (1-rayStartPoint(zAxis)) / rayDirection(zAxis);
+		if (std::abs(rayDirection(zAxis)) > -epsilon || collisionDist > -epsilon) return result;
 
 		double x = rayStartPoint(xAxis) + collisionDist * rayDirection(xAxis);
 		double y = rayStartPoint(yAxis) + collisionDist * rayDirection(yAxis);
-		double z = 0;
+		double z = 1;
 		
 		// Check that the point hit the plane
 		if ((-1 <= x && x <= 1) && (-1 <= y && y <= 1)) {
@@ -58,7 +58,7 @@ std::vector<RayIntersection> Cube::intersect(const Ray& ray) const {
 			norm(zAxis) = -1;
 			hit.normal = transform.apply(norm); // (Any z value < 0 would also work here)
 			
-			if (hit.normal.dot(ray.direction) > 0) {
+			if (hit.normal.dot(ray.direction) > -epsilon) {
 					hit.normal = -hit.normal;
 			}
 
@@ -70,5 +70,6 @@ std::vector<RayIntersection> Cube::intersect(const Ray& ray) const {
 			}
 		}
 	}
+
 	return result;
 }
