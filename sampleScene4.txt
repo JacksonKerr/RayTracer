@@ -6,7 +6,7 @@ End
 
 Object Cube
     Colour 1 0 0
-    Rotate Y -210
+    Rotate Y -40
     Translate 0 0 3
 End
 
