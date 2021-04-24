@@ -1,0 +1,41 @@
+# Test of the different Object Types
+Scene
+    backgroundColour 0 0 0
+    renderSize 200 200
+	rayDepth 2
+End
+
+# A mirror Plane
+Object Plane 
+	Colour 0.9 0.9 0.9
+	Mirror 0.7 0.7 0.7
+	Scale 2
+	Rotate Y -60
+	Translate -2 0 8
+End
+
+# A green Cube
+Object Cube 
+	Colour 0 1 0
+	Rotate X 210
+	Rotate Z 15
+	Rotate Y -15
+	Translate 2 0 8
+End
+
+# Quite a lot of ambient light - since it all we have to start
+Light AmbientLight
+	Colour 0.5 0.5 0.5
+End
+
+# And point lght
+Light PointLight
+	Location 0 -10 0
+	# Colour may seem large, but the 1/distance^2 law will kick in
+	Colour 100 100 100
+End
+
+# And a camera to render the image
+Camera PinholeCamera 2
+	# Default camera settings, nothing to do here
+End
