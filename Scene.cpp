@@ -32,7 +32,7 @@ void Scene::render() const {
 	for (unsigned int v = 0; v < renderHeight; ++v) {
 		for (unsigned int u = 0; u < renderWidth; ++u) {
 
-			if (v == 50 && u == 17) {
+			if (v == 50 && u == 40) {
 				DEBUGPIXEL = true; // DEBUG
 			}
 

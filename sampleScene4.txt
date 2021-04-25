@@ -4,9 +4,9 @@ Scene
     Filename render.png
 End
 
-Object Cube
+Object Cylinder
     Colour 1 0 0
-    Rotate Y 240
+    Rotate Y 0
     Translate 0 0 3
 End
 
@@ -15,14 +15,14 @@ Object Plane
     Colour 1 1 1
     Rotate X 90
     Rotate Z 180
-    Translate 0 1 0
+    Translate 0 1.01 0
 End
 
 Camera PinholeCamera 1
 End
 
 Light PointLight
-    Location -3 -1 0
+    Location -3 -0.5 0
     Colour 8 8 8
 End
 
