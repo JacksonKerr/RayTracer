@@ -6,7 +6,7 @@ End
 
 Object Cube
     Colour 1 0 0
-    Rotate Y -40
+    Rotate Y 240
     Translate 0 0 3
 End
 
@@ -22,7 +22,7 @@ Camera PinholeCamera 1
 End
 
 Light PointLight
-    Location 3 0 0
+    Location -3 -1 0
     Colour 8 8 8
 End
 
