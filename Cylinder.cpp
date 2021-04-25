@@ -24,8 +24,8 @@ Cylinder& Cylinder::operator=(const Cylinder& cylinder) {
 std::vector<RayIntersection> Cylinder::intersect(const Ray& ray) const {
 
 	std::vector<RayIntersection> result;
-	double r = 1; // Default tube radius
-	double l = 1; // Default tube length
+	double r = 1; // Tube radius
+	double l = 2; // Tube length
 
 	// Apply the inverse transform to the ray so we only have to worry 
 	// about a tube centered on the origin with a radius of r and length l
@@ -34,7 +34,7 @@ std::vector<RayIntersection> Cylinder::intersect(const Ray& ray) const {
 	const Point& rayStartPoint = inverseRay.point;
 	const Direction& rayDirection = inverseRay.direction;
 
-	// Taking a 2x2 Cylinder centered on the origin and pointing
+	// Taking a Cylinder centered on the origin and pointing
 	// along the z axis.
 	//
 	// Ray Point:  Starting Point:  Distance * Direction:
@@ -42,7 +42,9 @@ std::vector<RayIntersection> Cylinder::intersect(const Ray& ray) const {
 	//	  |y|     =     |f|        +        λ|dʸ|
 	//	  [z]           [g]                  [dᶻ]
 
-
+	// ===================================================== //
+	//			  Intersecing with Rounded Edge				 //
+	// ===================================================== //
 	// The ray is intersecting the tube when:
 	// y² + x² = r
 	// 
@@ -62,83 +64,75 @@ std::vector<RayIntersection> Cylinder::intersect(const Ray& ray) const {
 	double b = (2 * rayDirection(1)*rayStartPoint(1)) + (2 * rayDirection(0) * rayStartPoint(0));
 	double c = (rayStartPoint(1)*rayStartPoint(1)) + (rayStartPoint(0)*rayStartPoint(0)) - r;
 
-	// Small number, anything between it and 0 is treated as 0
-	double epsilon = std::numeric_limits<double>::epsilon();
-
-	// > epsilon means 2 solutions
 	double discriminant = b*b - 4*a*c;
-	std::vector<double> lambdas;
 
-	double distance1 = 0;
-	double distance2 = 0;
+	std::vector<double> hitDistances;
 
-	// Discriminant > epsilon means 2 solutions
-	if (discriminant > epsilon) { // Treat epsilon as 0
-		distance1 = (-b + sqrt(discriminant)) / (2*a);
-		distance2 = (-b - sqrt(discriminant)) / (2*a);
+	// Discriminant > epsilon means 2 solutions to quadratic equation
+	if (discriminant > epsilon) {
+		hitDistances.push_back( (-b + sqrt(discriminant)) / (2*a) );
+		hitDistances.push_back( (-b - sqrt(discriminant)) / (2*a) );
 	}
 	// Discriminant = 0 means 1 solution
 	else if (0 < discriminant && discriminant < epsilon) {
-		distance1 = (-b / (2*a));
+		hitDistances.push_back(-b / (2*a));
 	}
-	// Otherwise no solutions (Return early)
 
-	// Now having a/some λ value, we can use them to find
-	// to find the hit co-ordinates.
-	//
+	// Now, using our λ value(s), we can find the hit co-ordinates.
 	// x = e + λdˣ
-	// y = f + λdʸ
+	// y = f + λdʸ    ie.   hitPoint = startPoint + (distance * direction)
 	// z = e + λdᶻ
-	if (distance1 > epsilon) {
-		Point hitPoint = rayStartPoint + distance1 * rayDirection;
+	for (double hitDistance : hitDistances) {
+		if (hitDistance > epsilon) {
+			Point hitPoint = rayStartPoint + hitDistance * rayDirection;
 
-		// Checking z is within the length of the tube
-		if (-l <= hitPoint(2) && hitPoint(2) <= l) {
-			RayIntersection hit;
+			// Checking z is within the length of the tube
+			if (-l/2 <= hitPoint(2) && hitPoint(2) <= l/2) {
+				RayIntersection hit;
 
-			// Transform the hit point baack to where it belongs.
-			hit.point = transform.apply(hitPoint);
-			// Get the object's material
-			hit.material = material;
+				hit.point = transform.apply(hitPoint); // Transform the hit point back to it's transformed co-ords
+				hit.material = material;
 
-			
-			hit.normal = transform.apply(Normal(hitPoint(0), hitPoint(1), 0));
-			if (hit.normal.dot(ray.direction) > 0) hit.normal = -hit.normal;
+				hit.normal = transform.apply(Normal(hitPoint(0), hitPoint(1), 0));
+				if (hit.normal.dot(ray.direction) > 0) hit.normal = -hit.normal;
 
-			// Distance 
-			hit.distance = distance1;
+				hit.distance = hit.distance = (ray.point - hit.point).norm();;
 
-			// Add the hit to the result vector and return
-			result.push_back(hit);
+				result.push_back(hit);
+			}
 		}
 	}
 
-	if (distance2 > epsilon) {
-		Point hitPoint = rayStartPoint + distance2 * rayDirection;
+	// ===================================================== //
+	//			   Intersecing with End Caps				 //
+	// ===================================================== //
+	
+	// See cube.cpp
 
-		// Checking z is within the length of the tube
-		if (-l <= hitPoint(2) && hitPoint(2) <= l) {
-			RayIntersection hit;
+	for (int i = -1; i <= 1; i += 2) {
+		double collisionDist = ((i*(l/2))-rayStartPoint(2)) / rayDirection(2);
+		if (std::abs(rayDirection(2)) > epsilon && collisionDist > 0) {
+			double x = rayStartPoint(0) + collisionDist * rayDirection(0);
+			double y = rayStartPoint(1) + collisionDist * rayDirection(1);
+			double z = i*(l/2);
 
-			// Transform the hit point baack to where it belongs.
-			hit.point = transform.apply(hitPoint);
-			// Get the object's material
-			hit.material = material;
+			if (pow(x, 2) + pow(y, 2) <= r) { // Equation for a circle
+				RayIntersection hit;
 
-			
-			hit.normal = transform.apply(Normal(hitPoint(0), hitPoint(1), 0));
-			if (hit.normal.dot(ray.direction) > 0) hit.normal = -hit.normal;
+				hit.point = transform.apply(Point(x, y, z));
+				// Get the object's material
+				hit.material = material;
+				
+				// Normal direction is from the intersection point towards z
+				hit.normal = transform.apply(Normal(0, 0, 1));
+				if (hit.normal.dot(ray.direction) > 0) hit.normal = -hit.normal;
 
-			// Distance 
-			hit.distance = distance2;
+				hit.distance = (ray.point - hit.point).norm();
 
-			// Add the hit to the result vector and return
-			result.push_back(hit);
+				if (hit.distance > epsilon) result.push_back(hit);
+			}
 		}
 	}
 
-
-	
-	
 	return result;
 }
