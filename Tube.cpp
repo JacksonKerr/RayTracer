@@ -74,9 +74,9 @@ std::vector<RayIntersection> Tube::intersect(const Ray& ray) const {
 
 		// Discriminant > epsilon means 2 solutions to quadratic equation
 		if (discriminant > epsilon) {
-			double discrimWithoutB = sqrt(discriminant) / (2*a); // So we only take one sqrt (for efficiency)
-			hitDistances.push_back( (-b + discrimWithoutB );
-			hitDistances.push_back( (-b - discrimWithoutB );
+			double sqrtDiscriminnt = sqrt(discriminant); // So we only take one sqrt (for efficiency)
+			hitDistances.push_back( (-b + sqrtDiscriminnt )  / (2*a));
+			hitDistances.push_back( (-b - sqrtDiscriminnt )  / (2*a));
 		}
 		// Discriminant = 0 means 1 solution
 		else if (0 < discriminant && discriminant < epsilon) {

@@ -31,6 +31,7 @@ std::vector<RayIntersection> Cube::intersect(const Ray& ray) const {
 	const Point& rayStartPoint = inverseRay.point;
 	const Direction& rayDirection = inverseRay.direction;
 
+	// See plane.cpp for explaination
 
 	int xAxis = 0;
 	int yAxis = 1;
@@ -38,11 +39,16 @@ std::vector<RayIntersection> Cube::intersect(const Ray& ray) const {
 
 	for (int i = -1; i <= 1; i+=2) {	
 		if (true) {
+			//
+			//                  (+/- 1) - startPoint(z)
+			//  Distance is =   -----------------------
+			//				          direction(z)
+			//
 			double collisionDist = ((i*1) - rayStartPoint(zAxis) ) / rayDirection(zAxis);
 			if (std::abs(rayDirection(zAxis)) > epsilon && collisionDist > epsilon) {
 				double x = rayStartPoint(xAxis) + collisionDist * rayDirection(xAxis);
 				double y = rayStartPoint(yAxis) + collisionDist * rayDirection(yAxis);
-				double z = i*1;
+				double z = i*1; // z = 1/-1 ie. each side of cube will be moved out from the origin
 				
 				// Check that the point hit the plane
 				if ((-1 <= x && x <= 1) && (-1 <= y && y <= 1)) {
