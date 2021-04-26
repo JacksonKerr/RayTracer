@@ -21,8 +21,6 @@ auto printPoint = [](Vector vec, std::string varName) {
 };
 
 
-extern bool DEBUGPIXEL;
-bool DEBUGPIXEL = false; // DEBUG
 void Scene::render() const {
 	ImageDisplay display("Render", renderWidth, renderHeight);
 
@@ -31,17 +29,10 @@ void Scene::render() const {
 
 	for (unsigned int v = 0; v < renderHeight; ++v) {
 		for (unsigned int u = 0; u < renderWidth; ++u) {
-
-			if (v == 50 && u == 40) {
-				DEBUGPIXEL = true; // DEBUG
-			}
-
 			double cu = -1 + (u + 0.5)*(2.0 / w);
 			double cv = -h/w + (v + 0.5)*(2.0 / w);
 			Ray ray = camera_->castRay(cu, cv);
 			display.set(u, v, computeColour(ray, maxRayDepth));
-
-			DEBUGPIXEL = false;
 		}
 		display.refresh();
 	}
@@ -69,7 +60,6 @@ Colour Scene::computeColour(const Ray& ray, unsigned int rayDepth) const {
 	const RayIntersection hitPoint = intersect(ray);
 	if (hitPoint.distance == infinity) {
 		return backgroundColour;
-		if (DEBUGPIXEL) std::cout << "ERROR, hitpoint.distance == infinity !!!!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl;
 	}
 	Colour hitColour(0, 0, 0);
 	for (const auto & light : lights_) {
@@ -78,6 +68,18 @@ Colour Scene::computeColour(const Ray& ray, unsigned int rayDepth) const {
 			// === Ambient Lighting ===
 			hitColour += light->getIlluminationAt(hitPoint.point) * hitPoint.material.ambientColour;
 		} else {
+			// === SHADOWS == 
+			// Do this first, as if a hitPoint is in shadow then we can skip computing lighting
+			Ray shadowRay; // Ray going from hitPoint towards light
+			shadowRay.point = hitPoint.point;
+			shadowRay.direction = -light->getLightDirection(shadowRay.point);
+			double distToLight = light->getDistanceToLight(shadowRay.point);
+			RayIntersection shadowRayHit = this->intersect(shadowRay);
+
+			// Basicly, if something is between the hitPoint and the light, the hitPoint is in shadow
+			if (distToLight >= shadowRayHit.distance) continue;
+
+
 			// === Other lighting: === 
 
 			// Lambda for converting vectors to unit-vectors
@@ -92,64 +94,30 @@ Colour Scene::computeColour(const Ray& ray, unsigned int rayDepth) const {
 				return resultVector;
 			};
 
-			// DIFFUSE:
-			if (DEBUGPIXEL) {
-				std::cout << "\n=== PRIMARY RAY INFO: ===" << std::endl;
-				printPoint(ray.point, "ray.point");
-				printPoint(ray.direction, "ray.direction");
-
-				std::cout << "\n--- INTERSECTION DETAILS ---" << std::endl;
-				std::cout << "hitPoint.material: (" << hitPoint.material.ambientColour.red << ", "
-														<< hitPoint.material.ambientColour.green << ", "
-														<< hitPoint.material.ambientColour.blue << ")" << std::endl << std::endl;
-				
-				std::cout << "hitPoint.distance: " << hitPoint.distance << std::endl;
-				printPoint(hitPoint.point, "hitPoint.point");
-				printPoint(hitPoint.normal, "hitPoint.normal");
-				printPoint(toUnitVector(hitPoint.normal), "hitUnitNormal");
-			}
-			Vector hitUnitNormal = toUnitVector(hitPoint.normal);
+			Colour lightAtHitPoint = light->getIlluminationAt(hitPoint.point);
 			Vector unitLightDir = toUnitVector(light->getLightDirection(hitPoint.point));
-			Colour luxAtHitPoint = light->getIlluminationAt(hitPoint.point);
+			
+			// DIFFUSE:
+			Vector hitUnitNormal = toUnitVector(hitPoint.normal);
+			
 			Colour objectDiffuse = hitPoint.material.diffuseColour;
+			Colour diffuseColour = lightAtHitPoint * objectDiffuse * hitUnitNormal.dot(-unitLightDir);
+			
+			if (hitUnitNormal.dot(-unitLightDir) > 0) hitColour += diffuseColour;
 
-			// Check if point is in shadow before computing light:
-			// Ray going from hitPoint towards light
-			Ray shadowRay;
-			shadowRay.point = hitPoint.point;
-			shadowRay.direction = -light->getLightDirection(shadowRay.point);
-			double distToLight = light->getDistanceToLight(shadowRay.point);
-			RayIntersection shadowRayHit = this->intersect(shadowRay);
 
-			if (false) {
-				std::cout << "\n=== SHADOW RAY INFO: ===" << std::endl;
-				printPoint(shadowRay.point, "shadowRay.point");
-				printPoint(shadowRay.direction, "shadowRay.direction");
-				std::cout << "\ndistToLight: " << distToLight << std::endl;
-				std::cout << "shadowRayHit.distance: " << shadowRayHit.distance << std::endl;
-				printPoint(shadowRayHit.point, "shadowRayHit.point");
-				std::cout << "ShadowRayHit.material: (" << shadowRayHit.material.ambientColour.red << ", "
-														<< shadowRayHit.material.ambientColour.green << ", "
-														<< shadowRayHit.material.ambientColour.blue << ")" << std::endl << std::endl;
-				std::cout << "distToLight < shadowRayHit.distance = ";
-			}
+			// SPECULAR:
+			Vector dirTowardsViewer = toUnitVector(ray.direction);
+			
+			double objSpecExponent = hitPoint.material.specularExponent;
+			Colour objSpecColour = hitPoint.material.specularColour;
+			
+			Colour specColour = (lightAtHitPoint * objSpecColour) * pow(dirTowardsViewer.dot(-unitLightDir), objSpecExponent);
+			
+			if (unitLightDir.dot(dirTowardsViewer) < 0) hitColour += specColour;
 
-			if (distToLight < shadowRayHit.distance) {
-				double nDOTr = hitUnitNormal.dot(-unitLightDir);
-				
-				if (DEBUGPIXEL) {
-					std::cout << "True" << std::endl;
-					std::cout << "\tn . r = " << nDOTr << std::endl;
-				}
-				
-				if (nDOTr >= 0) {
-					hitColour += luxAtHitPoint * objectDiffuse * nDOTr; 
-				}
-			} else if (DEBUGPIXEL)std::cout << "False, nDOTr = " << hitUnitNormal.dot(-unitLightDir) << std::endl;
 		}		
 	}
-
-	if (DEBUGPIXEL) std::cout << "\n========================" << std::endl;
 
 	// Compute mirror reflections - only if surface hit is a mirror and we've not reached our rayDepth
 	if (rayDepth > 0 && (hitPoint.material.mirrorColour.red > 0 ||
@@ -179,11 +147,6 @@ Colour Scene::computeColour(const Ray& ray, unsigned int rayDepth) const {
 	}
 
 	hitColour.clip();
-	if (DEBUGPIXEL) std::cout << "Final Pixel Colour: (" << hitColour.red << ", " 
-										<< hitColour.green << ", "
-										<< hitColour.blue << ")" << std::endl; // DEBUG
-
-	if (DEBUGPIXEL) {hitColour.red = 1; hitColour.green = 0; hitColour.blue = 1;}
 	return hitColour;
 }
 

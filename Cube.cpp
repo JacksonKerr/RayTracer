@@ -22,7 +22,6 @@ Cube& Cube::operator=(const Cube& cube) {
 	return *this;
 }
 
-extern bool DEBUGPIXEL;
 
 std::vector<RayIntersection> Cube::intersect(const Ray& ray) const {
 	std::vector<RayIntersection> result;
