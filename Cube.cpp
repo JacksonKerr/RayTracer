@@ -64,11 +64,7 @@ std::vector<RayIntersection> Cube::intersect(const Ray& ray) const {
 
 					// Distance 
 					hit.distance = (ray.point - hit.point).norm();
-					if (hit.distance >= 0) {
-
-					// Add the hit to the result vector and return
-					result.push_back(hit);	
-					}
+					if (hit.distance >= 0) result.push_back(hit);	
 				}
 			}
 		}
@@ -102,11 +98,7 @@ std::vector<RayIntersection> Cube::intersect(const Ray& ray) const {
 
 					// Distance 
 					hit.distance = (ray.point - hit.point).norm();
-					if (hit.distance >= 0) {
-
-					// Add the hit to the result vector and return
-					result.push_back(hit);	
-					}
+					if (hit.distance >= 0) result.push_back(hit);	
 				}
 			}
 		}
@@ -140,11 +132,7 @@ std::vector<RayIntersection> Cube::intersect(const Ray& ray) const {
 
 					// Distance 
 					hit.distance = (ray.point - hit.point).norm();
-					if (hit.distance >= 0) {
-
-					// Add the hit to the result vector and return
-					result.push_back(hit);	
-					}
+					if (hit.distance >= 0) result.push_back(hit);	
 				}
 			}
 		}
